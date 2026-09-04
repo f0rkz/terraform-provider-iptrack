@@ -37,8 +37,13 @@ signs:
   - artifacts: checksum
     args:
       - --batch
+      - --yes
+      - --pinentry-mode
+      - loopback
       - --local-user
       - '{{ .Env.GPG_FINGERPRINT }}'
+      - --passphrase
+      - '{{ .Env.GPG_PASSPHRASE }}'
       - --output
       - '${signature}'
       - --detach-sign
